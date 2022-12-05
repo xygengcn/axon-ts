@@ -27,6 +27,8 @@ export const types = {
     rep: RepSocket
 };
 
+export type SocketType = typeof types;
+
 /**
  * Return a new socket of the given `type`.
  *
@@ -36,10 +38,10 @@ export const types = {
  * @api public
  */
 
-export const socket = function (type: keyof typeof types, options: Object) {
+export function socket<T extends keyof SocketType = keyof SocketType>(type: T, options?: Object) {
     const fn = types[type];
     if (!fn) throw new Error('invalid socket type "' + type + '"');
-    return new fn(options);
-};
+    return new fn(options || {});
+}
 
 export { PubEmitterSocket, SubEmitterSocket, PushSocket, PullSocket, PubSocket, SubSocket, ReqSocket, RepSocket, Socket };

@@ -1,7 +1,9 @@
 {
     "name": "axon-ts",
     "description": "High-level messaging & socket patterns implemented in pure js",
-    "version": "4.0.1",
+    "version": "5.0.0",
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts",
     "engines": {
         "node": ">=5"
     },
@@ -45,6 +47,6 @@
     "license": "MIT",
     "files": [
         "lib",
-        "index.js"
+        "dist"
     ]
 }

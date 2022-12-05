@@ -95,4 +95,8 @@ export default class SubEmitterSocket {
         }
         return this;
     }
+
+    public send() {
+        throw new Error('SubEmitterSocket cannot send messages');
+    }
 }

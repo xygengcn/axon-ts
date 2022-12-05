@@ -19,6 +19,10 @@ export default class PubEmitterSocket {
 
     public close!: PubSocket['close'];
 
+    public send() {
+        throw new Error('PubEmitterSocket cannot send messages');
+    }
+
     constructor(options: any) {
         this.sock = new PubSocket();
         this.emit = this.sock.send.bind(this.sock);

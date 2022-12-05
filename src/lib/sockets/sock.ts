@@ -228,7 +228,7 @@ export default class Socket extends Emitter {
      * @api public
      */
 
-    public connect(port: number | string, host: string | Function | undefined, fn?: Function) {
+    public connect(port: number | string, host?: string | Function | undefined, fn?: Function) {
         const self = this;
         if ('server' === this.type) throw new Error('cannot connect() after bind()');
         if ('function' === typeof host) {
@@ -333,7 +333,7 @@ export default class Socket extends Emitter {
      * @api public
      */
 
-    public bind(port, host, fn) {
+    public bind(port: number | string, host?: string | Function | undefined, fn?: Function) {
         const self = this;
         if ('client' == this.type) throw new Error('cannot bind() after connect()');
         if ('function' == typeof host) (fn = host), (host = undefined);
@@ -383,7 +383,7 @@ export default class Socket extends Emitter {
                             try {
                                 fs.unlinkSync(port as any);
                             } catch (e) {}
-                            self.server?.listen(port, host as any, fn);
+                            self.server?.listen(port, host as any, fn as any);
                         }
                     });
 
@@ -394,14 +394,14 @@ export default class Socket extends Emitter {
                     });
                 } else {
                     try {
-                        fs.unlinkSync(port);
+                        fs.unlinkSync(port as any);
                     } catch (e) {}
-                    self.server?.listen(port, host, fn);
+                    self.server?.listen(port, host as any, fn as any);
                 }
             });
         }
 
-        this.server.listen(port, host, fn);
+        this.server.listen(port, host as any, fn as any);
         return this;
     }
     // 未实现
