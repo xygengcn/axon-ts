@@ -1,46 +1,50 @@
 {
-  "name": "pm2-axon",
-  "description": "High-level messaging & socket patterns implemented in pure js",
-  "version": "4.0.1",
-  "author": {
-    "name": "TJ Holowaychuk",
-    "email": "tj@vision-media.ca"
-  },
-  "engines": {
-    "node": ">=5"
-  },
-  "dependencies": {
-    "amp": "~0.3.1",
-    "amp-message": "~0.1.1",
-    "debug": "^4.3.1",
-    "escape-string-regexp": "^4.0.0"
-  },
-  "devDependencies": {
-    "better-assert": "*",
-    "commander": "*",
-    "humanize-number": "0.0.2",
-    "mocha": "^8.1",
-    "should": "*"
-  },
-  "keywords": [
-    "zmq",
-    "zeromq",
-    "pubsub",
-    "socket",
-    "emitter",
-    "ipc",
-    "rpc"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Unitech/pm2-axon.git"
-  },
-  "scripts": {
-    "test": "make test"
-  },
-  "license": "MIT",
-  "files": [
-    "lib",
-    "index.js"
-  ]
+    "name": "axon-ts",
+    "description": "High-level messaging & socket patterns implemented in pure js",
+    "version": "4.0.1",
+    "engines": {
+        "node": ">=5"
+    },
+    "dependencies": {
+        "amp": "~0.3.1",
+        "amp-message": "^0.1.2",
+        "debug": "^4.3.3",
+        "escape-string-regexp": "4.0.0"
+    },
+    "devDependencies": {
+        "@types/debug": "^4.1.7",
+        "@types/node": "^18.11.10",
+        "better-assert": "*",
+        "commander": "*",
+        "humanize-number": "0.0.2",
+        "mocha": "^8.1",
+        "nodemon": "^2.0.20",
+        "prettier": "^2.8.0",
+        "should": "*",
+        "typescript": "^4.9.3"
+    },
+    "keywords": [
+        "typescript",
+        "axon",
+        "zmq",
+        "zeromq",
+        "pubsub",
+        "socket",
+        "emitter",
+        "ipc",
+        "rpc"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/xygengcn/axon-ts.git"
+    },
+    "scripts": {
+        "test": "make test",
+        "build": "tsc"
+    },
+    "license": "MIT",
+    "files": [
+        "lib",
+        "index.js"
+    ]
 }

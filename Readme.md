@@ -1,9 +1,11 @@
+# Only Use Typescript Rebuild for Me
+
 # Axon
 
   Axon is a message-oriented socket library for node.js heavily inspired by zeromq. For a light-weight
   UDP alternative you may be interested in [punt](https://github.com/visionmedia/punt).
 
-[![Build Status](https://travis-ci.org/unitech/pm2-axon.png)](https://travis-ci.org/unitech/pm2-axon)
+
 
 ## Installation
 
