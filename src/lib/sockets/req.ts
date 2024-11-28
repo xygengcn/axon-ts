@@ -7,6 +7,7 @@ import { slice } from '../utils';
 import Message from 'amp-message';
 import Socket from './sock';
 import debug from 'debug';
+import net from 'net';
 
 const reqDebug = debug('axon:req');
 
@@ -57,13 +58,16 @@ export default class ReqSocket extends Socket {
      * @api private
      */
 
-    public onmessage() {
+    public onmessage(sock: net.Socket) {
         const self = this;
         return function (buf: Buffer | Buffer[]) {
             const msg = new Message(buf);
             const id = msg.pop() as string;
             const fn = self.callbacks[id];
-            if (!fn) return reqDebug('missing callback %s', id);
+            if (!fn) {
+                self.emit('message', msg, sock);
+                return reqDebug('missing callback %s', id);
+            }
             fn.apply(null, msg.args);
             delete self.callbacks[id];
         };
